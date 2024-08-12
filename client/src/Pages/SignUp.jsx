@@ -45,7 +45,7 @@ const SignUp = () => {
     return (
       <div className='p-3 max-w-lg mx-auto'>
         <h1>User created successfully!</h1>
-        <button onClick={() => navigate('/')}>Go to Home Page</button>
+        <button onClick={() => navigate('/sign-in')}>sign in right away!!</button>
       </div>
     );
   }
