@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { signInStart,signInSuccess, signInFailure } from '../redux/user/userSlice';
 
 const SignIn = () => {
     const [formData, setFormData] = useState({});
-    const [error, setError] = useState(null);
-    const [success, setSuccess] = useState(false);
+    // const [error, setError] = useState(null);
+    const {loading ,error}=useSelector((state)=> state.user);
+    const dispatch = useDispatch();
+    // const [success, setSuccess] = useState(false);
     const navigate = useNavigate();
   
     const handleChange = (e) => {
@@ -18,6 +21,7 @@ const SignIn = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
+        dispatch(signInStart());
         const res = await fetch('/api/auth/signin', {
           method: 'POST',
           headers: {
@@ -26,42 +30,58 @@ const SignIn = () => {
           body: JSON.stringify(formData),
         });
         const data = await res.json();
+        console.log(data);
+        
   
         if (data.success === false) {
-          if (data.message.includes('duplicate key')) {
-            setError('User with the same username/email already exists');
-          } else {
-            setError(data.message);
-          }
+          dispatch(signInFailure(data.message));
           return;
         }
-        setError(null);
-        setSuccess(true);
+        dispatch(signInSuccess(data));
         navigate('/'); // Set success to true if the user is created successfully
       } catch (err) {
-        setError('An error occurred while signing up. Please try again.');
+        dispatch(signInFailure(err.message))
+        // setError('An error occurred while signing up. Please try again.');
       }
     };
   
     
   return (
 
-         <div className='p-3 max-w-lg mx-auto'>
-      <h1>Sign In</h1>
-      <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
-       
-        <input type="email" id="email" placeholder='Email' onChange={handleChange} />
-        <input type="password" id="password" placeholder='Password' onChange={handleChange} />
-        <button type="submit">Sign In</button>
+    <div className='p-3 max-w-lg mx-auto'>
+    <h1 className='text-3xl text-center font-semibold my-7'>Sign In</h1>
+    <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+      <input
+        type='email'
+        placeholder='email'
+        className='border p-3 rounded-lg'
+        id='email'
+        onChange={handleChange}
+      />
+      <input
+        type='password'
+        placeholder='password'
+        className='border p-3 rounded-lg'
+        id='password'
+        onChange={handleChange}
+      />
+
+      <button
+        disabled={loading}
+        className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+      >
+        {loading ? 'Loading...' : 'Sign In'}
+      </button>
+      {/* <OAuth/> */}
       </form>
-      {error && <p className="text-red-500">{error}</p>}
-      <div>
-        <p>Do not have an account?</p>
-        <Link to={"/sign-up"}>
-          <button>Sign Up</button>
+      <div className='flex gap-2 mt-5'>
+        <p>Dont have an account?</p>
+        <Link to={'/sign-up'}>
+          <span className='text-blue-700'>Sign up</span>
         </Link>
       </div>
-</div>
+      {error && <p className='text-red-500 mt-5'>{error}</p>}
+    </div>
   )
 }
 
