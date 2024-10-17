@@ -26,7 +26,7 @@ export const signin=async (req,res,next)=>{
         const token =jwt.sign({id:validUser._id},process.env.JWT_SECRET);
         const{password:pass,...rest}=validUser._doc;
 
-        res.cookie('access+token',token,{httpOnly:true}).status(200).json(rest);
+        res.cookie('access_token',token,{httpOnly:true}).status(200).json(rest);
 
     }catch(error){
         next(error);
@@ -40,7 +40,7 @@ export const google=async (req,res,next)=>{
         if(user){
             const token =jwt.sign({id:user._id},process.env.JWT_SECRET);
             const{password:pass,...rest}=user._doc;
-            res.cookie('access+token',token,{httpOnly:true}).status(200).json(rest);
+            res.cookie('access_token',token,{httpOnly:true}).status(200).json(rest);
 
         }else{
             const generatedPassword=Math.random().toString(36).slice(-8)+Math.random().toString(36).slice(-8);
@@ -53,6 +53,14 @@ export const google=async (req,res,next)=>{
 
         }
 
+    } catch (error) {
+        next(error);
+    }
+}
+export const signOut = async (req,res,next)=>{
+    try {
+        res.clearCookie('access_token');
+        res.status(200).json('User has been logged out !!');
     } catch (error) {
         next(error);
     }
