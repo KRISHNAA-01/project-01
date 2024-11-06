@@ -1,0 +1,51 @@
+[
+    {
+      "id": 1,
+      "name": "Pipes",
+      "image": "https://ucarecdn.com/baf62dc9-230a-452a-8840-b556b59ceb9d/-/preview/750x1000/",
+      "price": 240,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,"
+    },
+    {
+      "id": 2,
+      "name": "Wood Sheets",
+      "image": "https://ucarecdn.com/6133e052-d10b-492d-8ae4-33d7510af964/-/preview/451x773/",
+      "price": 440,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,"
+    },
+    {
+      "id": 3,
+      "name": "Carpets",
+      "image": "https://ucarecdn.com/139e3f6c-4f24-4ec1-98da-0f9838baca7c/-/preview/402x701/",
+      "price": 140,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,"
+    },
+    {
+      "id": 4,
+      "name": "Glasses",
+      "image": "https://ucarecdn.com/4f2d22dd-13c4-4ae5-82f8-a9eac3cb2c4c/-/preview/550x550/",
+      "price": 340,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,"
+    },
+    {
+      "id": 5,
+      "name": "Micas",
+      "image": "https://ucarecdn.com/de61307b-1c94-4cc5-a3e9-766dfa1018f8/-/preview/1000x664/",
+      "price": 289,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,"
+    },
+    {
+      "id": 6,
+      "name": "Frames",
+      "image": "https://ucarecdn.com/d5164890-7f56-4b6e-a4ee-c8ac7face38d/-/preview/337x450/",
+      "price": 499,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,"
+    },
+    {
+      "id": 7,
+      "name": "Wooden Mains",
+      "image": "https://ucarecdn.com/ec9793a4-f754-477b-893f-e9517491dd9d/-/preview/708x1000/",
+      "price": 40,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,"
+    }
+  ]

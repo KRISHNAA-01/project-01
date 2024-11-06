@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import OAuth from '../Components/OAuth';
 
-const SignUp = () => {
+export default function SignUp() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.id]: e.target.value,
     });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: {
@@ -26,51 +25,71 @@ const SignUp = () => {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-
+      console.log(data);
       if (data.success === false) {
-        if (data.message.includes('duplicate key')) {
-          setError('User with the same username/email already exists');
-        } else {
-          setError(data.message);
-        }
+        setLoading(false);
+        setError(data.message);
         return;
       }
+      setLoading(false);
       setError(null);
-      setSuccess(true); // Set success to true if the user is created successfully
-    } catch (err) {
-      setError('An error occurred while signing up. Please try again.');
+      navigate('/sign-in');
+    } catch (error) {
+      setLoading(false);
+      setError(error.message);
     }
   };
-
-  if (success) {
-    return (
-      <div className='p-3 max-w-lg mx-auto'>
-        <h1>User created successfully!</h1>
-        <button onClick={() => navigate('/sign-in')}>sign in right away!!</button>
-      </div>
-    );
-  }
-
   return (
-    <div className='p-3 max-w-lg mx-auto'>
-      <h1>Sign Up</h1>
-      <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
-        <input type="text" id="username" placeholder='Username' onChange={handleChange} />
-        <input type="email" id="email" placeholder='Email' onChange={handleChange} />
-        <input type="password" id="password" placeholder='Password' onChange={handleChange} />
-        <button type="submit">Sign up</button>
-      <OAuth/> 
-      </form>
-      {error && <p className="text-red-500">{error}</p>}
-      <div>
-        <p>Have an account?</p>
-        <Link to={"/sign-in"}>
-          <button>Sign in</button>
+    <>
+        <div className="text-center mt-7">
+        <Link
+          to="/"
+          className="text-blue-700 text-lg font-semibold underline hover:text-blue-900 transition"
+        >
+          ← Return to Home
         </Link>
-
       </div>
-    </div>
-  );
-};
+    <div className='p-3 max-w-lg mx-auto'>
+      <h1 className='text-3xl text-center font-semibold my-7'>Sign Up</h1>
+      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+        <input
+          type='text'
+          placeholder='username'
+          className='border p-3 rounded-lg'
+          id='username'
+          onChange={handleChange}
+        />
+        <input
+          type='email'
+          placeholder='email'
+          className='border p-3 rounded-lg'
+          id='email'
+          onChange={handleChange}
+        />
+        <input
+          type='password'
+          placeholder='password'
+          className='border p-3 rounded-lg'
+          id='password'
+          onChange={handleChange}
+        />
 
-export default SignUp;
+        <button
+          disabled={loading}
+          className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+        >
+          {loading ? 'Loading...' : 'Sign Up'}
+        </button>
+        <OAuth/>
+      </form>
+      <div className='flex gap-2 mt-5'>
+        <p>Have an account?</p>
+        <Link to={'/sign-in'}>
+          <span className='text-blue-700'>Sign in</span>
+        </Link>
+      </div>
+      {error && <p className='text-red-500 mt-5'>{error}</p>}
+    </div>
+    </>
+  );
+}

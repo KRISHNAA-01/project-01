@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { signInStart,signInSuccess, signInFailure } from '../redux/user/userSlice';
 import OAuth from '../Components/OAuth';
-
+import { CartContext } from '../Components/context/CartContext';
 const SignIn = () => {
     const [formData, setFormData] = useState({});
     // const [error, setError] = useState(null);
@@ -11,7 +11,7 @@ const SignIn = () => {
     const dispatch = useDispatch();
     // const [success, setSuccess] = useState(false);
     const navigate = useNavigate();
-  
+    const {fetchCartItems} =useContext(CartContext);
     const handleChange = (e) => {
       setFormData({
         ...formData,
@@ -39,6 +39,7 @@ const SignIn = () => {
           return;
         }
         dispatch(signInSuccess(data));
+        await fetchCartItems();
         navigate('/'); // Set success to true if the user is created successfully
       } catch (err) {
         dispatch(signInFailure(err.message))
@@ -47,9 +48,18 @@ const SignIn = () => {
     };
   
     
-  return (
-
+  return (<>
+    <div className="text-center mt-7">
+        <Link
+          to="/"
+          className="text-blue-700 text-lg font-semibold underline hover:text-blue-900 transition"
+        >
+          ← Return to Home
+        </Link>
+      </div>
     <div className='p-3 max-w-lg mx-auto'>
+    
+
     <h1 className='text-3xl text-center font-semibold my-7'>Sign In</h1>
     <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
       <input
@@ -83,6 +93,7 @@ const SignIn = () => {
       </div>
       {error && <p className='text-red-500 mt-5'>{error}</p>}
     </div>
+  </>
   )
 }
 
