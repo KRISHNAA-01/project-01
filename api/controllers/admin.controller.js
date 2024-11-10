@@ -1,5 +1,6 @@
 // admin.controller.js
 import Item from '../models/item.model.js';
+import Order from '../models/order.model.js';
 import { errorHandler } from '../utils/error.js';
 
 export const addProduct = async (req, res, next) => {
@@ -45,5 +46,35 @@ export const updateStock = async (req, res, next) => {
         res.status(200).json(updatedItem);
     } catch (error) {
         next(errorHandler(500, 'Error updating stock.'));
+    }
+};export const getAllOrders = async (req, res, next) => {
+    try {
+        const orders = await Order.find()
+            .populate('user', 'username email') // Populate user fields
+            .populate('cartItems.product', 'name price'); // Populate product fields in cart items
+
+        res.status(200).json(orders);
+    } catch (error) {
+        next(errorHandler(500, 'Error fetching orders.'));
+    }
+};
+
+// Delete an order
+export const deleteOrder = async (req, res, next) => {
+    try {
+        const deletedOrder = await Order.findByIdAndDelete(req.params.id);
+        if (!deletedOrder) return next(errorHandler(404, 'Order not found.'));
+        res.status(200).json({ message: 'Order deleted successfully!' });
+    } catch (error) {
+        next(errorHandler(500, 'Error deleting order.'));
+    }
+};
+// Fetch all users
+export const getAllUsers = async (req, res, next) => {
+    try {
+        const users = await User.find({}, '-password'); // Fetch all users excluding their passwords
+        res.status(200).json(users);
+    } catch (error) {
+        next(errorHandler(500, 'Error fetching users.'));
     }
 };

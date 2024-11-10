@@ -54,6 +54,8 @@ import { AdminProvider } from './Components/context/AdminContext' // Import Admi
 import Checkout from './Pages/checkout'
 import AddProduct from './Components/admin/AddProduct'
 import EditProduct from './Components/admin/EditProduct'
+import Orders from './Pages/Orders'
+import AdminDashboard from './Pages/Admin/AdminDashboard'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -71,6 +73,8 @@ function App() {
               <Route path='/cart' element={<CartPage />} />
               <Route path='/add-product' element={<AddProduct />} />
               <Route path='/edit-product/:id' element={<EditProduct />} />
+              <Route path='/orders' element={<Orders/>} />
+              <Route path='/admin-dashboard/*' element={<AdminDashboard/>}/>
             </Route>
             <Route path="/:id" element={<Page />} />
             <Route path='/checkout' element={<Checkout />} />

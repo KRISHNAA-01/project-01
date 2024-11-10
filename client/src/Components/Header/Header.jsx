@@ -74,12 +74,20 @@ const Header = () => {
             )}
           </Link>
           <Link
+            to="/orders"
+            className="relative bg-[#9e9495] text-white px-4 py-2 rounded-md flex items-center gap-2"
+          >
+            Orders
+            
+          </Link>
+          <Link
             to="/cart"
             className="relative bg-[#e30217] text-white px-4 py-2 rounded-md flex items-center gap-2"
           >
             Cart
             <CartIcon />
           </Link>
+
         </nav>
       </div>
     </header>
