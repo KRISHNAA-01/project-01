@@ -9,6 +9,8 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors'
 import adminRouter from './routes/admin.route.js';
 import orderRouter from './routes/order.route.js'
+import feedbackRouter from "./routes/Feedback.js";
+import  reviewRouter from "./routes/review.route.js"
 dotenv.config();
 mongoose.connect(process.env.MONGO).then(()=>{
     console.log("connectedd to db");
@@ -36,6 +38,9 @@ app.use("/api/item",itemRouter);
  app.use("/api/cart", cartRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/order', orderRouter);
+app.use("/api/feedback", feedbackRouter); // Feedback routes
+app.use("/api/review",reviewRouter);
+
 
 import Razorpay from 'razorpay';
 const razorpay = new Razorpay({

@@ -1,61 +1,4 @@
-// // models/Order.js
-// import mongoose from 'mongoose';
 
-// const OrderSchema = new mongoose.Schema({
-//   user: {
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: 'User',
-//     required: true,
-//   },
-//   billingInfo: {
-//     firstName: String,
-//     lastName: String,
-//     email: String,
-//     address: String,
-//     address2: String,
-//     country: String,
-//     state: String,
-//     zip: String,
-//   },
-//   cartItems: [
-//     {
-//       product: {
-//         type: mongoose.Schema.Types.ObjectId,
-//         ref: 'Item',
-//         required: true,
-//       },
-//       name: String,
-//       price: Number,
-//       quantity: {
-//         type: Number,
-//         required: true,
-//       },
-//     },
-//   ],
-//   totalAmount: {
-//     type: Number,
-//     required: true,
-//   },
-//   status: {
-//     type: String,
-//     enum: ['Pending', 'Completed', 'Cancelled'],
-//     default: 'Pending',
-//   },
-//   paymentInfo: {
-//     orderId: String,
-//     paymentId: String,
-//     signature: String,
-//   },
-//   createdAt: {
-//     type: Date,
-//     default: Date.now,
-//   },
-// });
-
-// const Order = mongoose.model('Order', OrderSchema);
-// export default Order;
-
-// models/Order.js// models/Order.js
 import mongoose from 'mongoose';
 
 const OrderSchema = new mongoose.Schema({
@@ -81,6 +24,8 @@ const OrderSchema = new mongoose.Schema({
       name: String,
       price: Number,
       quantity: { type: Number, required: true },
+      reviewed: { type: Boolean, default: false }, // Tracks if a product has been reviewed
+    
     },
   ],
   totalAmount: { type: Number, required: true },
