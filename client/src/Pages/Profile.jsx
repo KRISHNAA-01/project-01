@@ -296,6 +296,8 @@ import {
   deleteUserStart,
   deleteUserSuccess,
   signOutUserStart,
+  signOutUserFailure,
+  signOutUserSuccess,
 } from '../redux/user/userSlice';
 
 export default function Profile() {
@@ -341,6 +343,36 @@ export default function Profile() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
+  useEffect(() => {
+    const autoSignOutTimer = setTimeout(async () => {
+      try {
+        // Dispatch signOutUserStart to indicate the process is beginning
+        dispatch(signOutUserStart());
+
+        // Call the backend for auto sign-out logic (like the manual sign-out function)
+        const res = await fetch('/api/auth/signout');
+        const data = await res.json();
+
+        // Check if the response indicates a failure
+        if (data.success === false) {
+          dispatch(signOutUserFailure(data.message));
+          return;
+        }
+
+        // Dispatch signOutUserSuccess if everything went well
+        dispatch(signOutUserSuccess());
+
+        // Optionally, you can show a message or log out the user from the frontend
+        alert('You have been automatically signed out due to inactivity.');
+      } catch (error) {
+        // Dispatch signOutUserFailure if there's an error during the auto sign-out process
+        dispatch(signOutUserFailure(error.message || 'Failed to sign out'));
+      }
+    }, 3600000); // Auto sign-out after 1 hour (3600000 milliseconds)
+
+    // Cleanup function to clear the timeout if the component is unmounted
+    return () => clearTimeout(autoSignOutTimer);
+  }, [dispatch]);
 
   // Function to verify password
   const verifyPassword = async (password) => {
@@ -424,22 +456,24 @@ export default function Profile() {
       }
     }
   };
-
   const handleSignOut = async () => {
-    try {
-      dispatch(signOutUserStart());
-      const res = await fetch('/api/auth/signout');
-      const data = await res.json();
-      if (data.success === false) {
-        dispatch(deleteUserFailure(data.message));
-        return;
+    const confirmation = window.confirm("Are you sure you want to sign out?");
+    if (confirmation) {
+      try {
+        dispatch(signOutUserStart());
+        const res = await fetch('/api/auth/signout');
+        const data = await res.json();
+        if (data.success === false) {
+          dispatch(signOutUserFailure(data.message));
+          return;
+        }
+        dispatch(signOutUserSuccess(data));
+      } catch (error) {
+        dispatch(signOutUserFailure(error.message));
       }
-      dispatch(deleteUserSuccess(data));
-    } catch (error) {
-      dispatch(deleteUserFailure(error.message));
     }
   };
-
+  
   return (
     <div className='p-3 max-w-lg mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>

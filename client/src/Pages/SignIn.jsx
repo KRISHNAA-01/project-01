@@ -40,7 +40,7 @@ const SignIn = () => {
         }
         dispatch(signInSuccess(data));
         await fetchCartItems();
-        navigate('/'); // Set success to true if the user is created successfully
+        navigate("/", { replace: true });
       } catch (err) {
         dispatch(signInFailure(err.message))
         // setError('An error occurred while signing up. Please try again.');
