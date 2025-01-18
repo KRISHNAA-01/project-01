@@ -101,9 +101,13 @@ export default function ProductSection() {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await fetch("/api/item");
+        const response = await fetch(
+          import.meta.env.PROD
+            ? 'https://project-01-1-vhio.onrender.com/api/item' // Production URL
+            : '/api/item' // Development URL
+        );
         if (!response.ok) {
-          throw new Error("Failed to fetch items");
+          throw new Error('Failed to fetch items');
         }
         const data = await response.json();
         setItems(data);

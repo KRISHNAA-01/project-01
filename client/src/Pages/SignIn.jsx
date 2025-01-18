@@ -22,8 +22,13 @@ const SignIn = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
+
+        
+
         dispatch(signInStart());
-        const res = await fetch('/api/auth/signin', {
+        const res = await fetch(import.meta.env.PROD
+          ? 'https://project-01-1-vhio.onrender.com/api/auth/signin' // Production URL
+          : '/api/auth/signin', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
