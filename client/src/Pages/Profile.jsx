@@ -186,7 +186,8 @@ export default function Profile() {
         const res = await api.get('/auth/signout'); // Use `api` for consistent environment handling
 
         // const res = await fetch('/api/auth/signout');
-        const data = await res.json();
+        const data = await res.data;
+        // const data = await res.json();
         if (data.success === false) {
           dispatch(signOutUserFailure(data.message));
           return;
