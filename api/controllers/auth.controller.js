@@ -52,7 +52,11 @@ export const signin = async (req, res, next) => {
         // Exclude password from the response
         const { password: pass, ...rest } = validUser._doc;
 
-        res.cookie('access_token', token, { httpOnly: true, sameSite: 'None' })
+        res.cookie('access_token', token, 
+            { httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'None' 
+        })
            .status(200)
            .json(rest);
     } catch (error) {
