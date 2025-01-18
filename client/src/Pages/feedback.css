@@ -1,0 +1,84 @@
+/* Ensure the background image covers the entire page */
+.feedback-page-container {
+  background: url("../assets/feedback_background1.jpg") no-repeat center center
+    fixed; /* Ensure it is centered */
+  background-size: cover; /* Make the background image cover the whole page */
+  min-height: 100vh; /* Ensure it covers at least the full height of the viewport */
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+/* Container for the feedback form and feedback list */
+.feedback-container {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Slightly transparent white background */
+  padding: 40px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 900px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Adds shadow to the container */
+  text-align: center;
+}
+
+/* Heading styles */
+.feedback-heading {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form and button styles */
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.feedback-form button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.feedback-form button:hover {
+  background-color: #45a049;
+}
+
+/* List of feedbacks */
+.feedback-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.feedback-list li {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-list li strong {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.feedback-list li p {
+  font-size: 1rem;
+  color: #555;
+}

@@ -61,7 +61,7 @@ const Header = () => {
         </div>
         <nav className="flex items-center gap-8">
           <Link to="/" className="hover:text-[#e30217]">Home</Link>
-          <Link to="/about" className="hover:text-[#e30217]">About</Link>
+          {/* <Link to="/about" className="hover:text-[#e30217]">About</Link> */}
           <Link to="/profile">
             {currentUser ? (
               <img
@@ -87,6 +87,8 @@ const Header = () => {
             Cart
             <CartIcon />
           </Link>
+          <Link to="/feedback">Feedback</Link>
+
 
         </nav>
       </div>

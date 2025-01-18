@@ -1,0 +1,51 @@
+.promotional-section {
+  background: linear-gradient(
+      to bottom, 
+      rgba(0, 0, 0, 0.6) 0%, /* Darker overlay at the top */
+      rgba(0, 0, 0, 0.2) 70%, /* Gradual transition to lighter overlay */
+      rgba(0, 0, 0, 0) 100% /* Fully transparent at the bottom */
+    ), 
+    url("../assets/promo_bg.jpg") no-repeat center center/cover;
+  background-size: cover; /* Ensure the image covers the entire section */
+  background-position: center; /* Keep the image centered */
+  width: 100%; /* Span full width */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.promo-content {
+  max-width: 1200px; /* Adjust for your content's max width */
+  width: 100%;
+  padding: 2rem;
+}
+
+.promo-content h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds shadow to make the text stand out */
+}
+
+.promo-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.shop-now {
+  background-color: #e67e22;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.shop-now:hover {
+  background-color: #d35400;
+}

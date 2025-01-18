@@ -1,0 +1,89 @@
+/* Hero Section Styling */
+.hero-section {
+    background: url("../assets/feedback_background2.jpg") no-repeat center
+      center/cover; /* Adjust this path to your project structure */
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .shop-name {
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+  }
+  
+  .tagline {
+    font-size: 24px;
+    margin-top: 5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+  }
+  
+  .order-button {
+    background-color: transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .order-button:hover {
+    background-color: white;
+    color: #590109;
+  }
+  
+  .search-input {
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: white;
+    outline: none;
+    width: 80%; /* Make it wider for better appearance */
+    max-width: 400px;
+  }
+  
+  .search-input::placeholder {
+    color: #590109;
+  }
+  
+  /* Add a subtle overlay */
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(
+      0,
+      0,
+      0,
+      0.3
+    ); /* Slight dark overlay to enhance text readability */
+    z-index: -1;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-section {
+      height: 350px;
+    }
+  
+    .shop-name {
+      font-size: 32px;
+    }
+  
+    .tagline {
+      font-size: 16px;
+    }
+  
+    .search-input {
+      width: 90%;
+    }
+  }
+  
