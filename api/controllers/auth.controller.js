@@ -48,14 +48,15 @@ export const signin = async (req, res, next) => {
             process.env.JWT_SECRET,
             { expiresIn: '1h' }
         );
+        console.log("Generated Token:", token);
 
         // Exclude password from the response
         const { password: pass, ...rest } = validUser._doc;
 
         res.cookie('access_token', token, 
             { httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'None' 
+            //  secure: process.env.NODE_ENV,
+             sameSite: 'None' 
         })
            .status(200)
            .json(rest);
