@@ -29,7 +29,10 @@ const OrderSchema = new mongoose.Schema({
     },
   ],
   totalAmount: { type: Number, required: true },
-  status: { type: String, enum: ['Pending', 'Completed', 'Cancelled'], default: 'Pending' },
+  status: { type: String, enum: ['Order Initiated', 'order dispatched', 'Delivered'], 
+    default: 'Order Initiated' },
+    expectedDeliveryDate: { type: Date }, // Optional field
+
   paymentInfo: { orderId: String, paymentId: String, signature: String },
   createdAt: { type: Date, default: Date.now },
 });

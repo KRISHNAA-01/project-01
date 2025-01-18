@@ -86,7 +86,7 @@ export const verifyPayment = async (req, res) => {
         billingInfo,
         cartItems: formattedCartItems,
         totalAmount,
-        status: 'Completed',
+        status: 'Order Initiated',
         paymentInfo: {
           orderId: razorpay_order_id,
           paymentId: razorpay_payment_id,

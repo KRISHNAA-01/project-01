@@ -18,15 +18,13 @@ router.get('/:productId', async (req, res) => {
     res.status(500).json({ error: 'Error fetching reviews' });
   }
 });
-
 // Submit a review
-router.post('/:productId',verifyToken, async (req, res) => {
+router.post('/:productId', verifyToken, async (req, res) => {
   try {
     const { productId } = req.params;
     const { rating, reviewText } = req.body;
     const userId = req.user.id;
-    console.log(userId);
-    
+
     // Check if user purchased the product
     const orders = await Order.find({ user: userId, 'cartItems.product': productId });
     if (orders.length === 0) {
@@ -36,7 +34,7 @@ router.post('/:productId',verifyToken, async (req, res) => {
     // Check if review already exists
     const existingReview = await Review.findOne({ user: userId, product: productId });
     if (existingReview) {
-      return res.status(400).json({ message: 'You have already reviewed this product.' });
+      return res.status(400).json({ code: 'ALREADY_REVIEWED', message: 'You have already reviewed this product.' });
     }
 
     // Create new review
@@ -45,6 +43,26 @@ router.post('/:productId',verifyToken, async (req, res) => {
     res.status(201).json({ message: 'Review submitted successfully', review });
   } catch (error) {
     res.status(500).json({ error: 'Error submitting review' });
+  }
+});
+// Fetch review stats (average stars and total reviews)
+router.get('/:productId/stats', async (req, res) => {
+  try {
+    const { productId } = req.params;
+
+    const reviews = await Review.find({ product: productId });
+    if (!reviews.length) {
+      return res.json({ averageRating: 0, totalReviews: 0 });
+    }
+
+    const totalReviews = reviews.length;
+    const averageRating = (
+      reviews.reduce((sum, review) => sum + review.rating, 0) / totalReviews
+    ).toFixed(1);
+
+    res.json({ averageRating, totalReviews });
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching review stats' });
   }
 });
 

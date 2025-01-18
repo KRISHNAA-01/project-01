@@ -40,7 +40,13 @@ const SignIn = () => {
         }
         dispatch(signInSuccess(data));
         await fetchCartItems();
-        navigate("/", { replace: true });
+       
+        // navigate("/", { replace: true });
+        if (data.isAdmin) {
+          navigate('/admin-dashboard', { replace: true });
+        } else {
+          navigate('/', { replace: true });
+        }
       } catch (err) {
         dispatch(signInFailure(err.message))
         // setError('An error occurred while signing up. Please try again.');

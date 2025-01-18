@@ -5,4 +5,85 @@
   .product-card:hover img {
     transform: scale(1.05);
   }
+  @keyframes progress-bar {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
   
+  .animate-progress-bar {
+    animation: progress-bar 2s ease-in-out infinite;
+  }
+  /* Card container styles */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effects for the card */
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image hover effect */
+.product-card img {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.1);
+}
+
+/* "View Details" overlay */
+.product-card .view-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  z-index: 1; /* Lower priority than buttons */
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .view-details {
+  opacity: 1;
+}
+
+/* "Add to Cart" button priority */
+.product-card .cart-actions {
+  position: relative;
+  z-index: 2; /* Higher priority than the overlay */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.product-card .cart-actions button {
+  background-color: #e30217;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-card .cart-actions button:hover {
+  background-color: #a60111;
+}

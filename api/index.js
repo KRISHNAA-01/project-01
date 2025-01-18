@@ -21,11 +21,11 @@ mongoose.connect(process.env.MONGO).then(()=>{
 });
 
 const app =express();
-const port = 3000;
+const port = process.env.PORT;
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
-app.use(cors({ origin: "http://localhost:5173" }));
+// app.use(cors({ origin: "http://localhost:5173" }));
 app.listen(port,()=>{
     console.log(`server is running on port ${port}!!`);
     
@@ -44,8 +44,8 @@ app.use("/api/review",reviewRouter);
 
 import Razorpay from 'razorpay';
 const razorpay = new Razorpay({
-    key_id: 'rzp_test_t9V1VZTLU2jhvd',
-    key_secret: 'tg5OrxohACHlYw8IQnsLDUHz',
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_KEY_SECRET,
   });
 app.post('/test-razorpay', async (req, res) => {
     try {

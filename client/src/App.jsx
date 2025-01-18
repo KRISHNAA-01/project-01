@@ -56,6 +56,7 @@ import AddProduct from './Components/admin/AddProduct'
 import EditProduct from './Components/admin/EditProduct'
 import Orders from './Pages/Orders'
 import AdminDashboard from './Pages/Admin/AdminDashboard'
+import FeedbackPage from './Pages/FeedbackPage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -75,6 +76,8 @@ function App() {
               <Route path='/edit-product/:id' element={<EditProduct />} />
               <Route path='/orders' element={<Orders/>} />
               <Route path='/admin-dashboard/*' element={<AdminDashboard/>}/>
+              <Route path="/feedback" element={<FeedbackPage />} />{" "}
+
             </Route>
             <Route path="/:id" element={<Page />} />
             <Route path='/checkout' element={<Checkout />} />

@@ -27,11 +27,15 @@ export const AdminProvider = ({ children }) => {
             setLoading(false);
         }
     };
+
+    // Function to edit a product
     const editProduct = async (id, updatedData) => {
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.put(`/api/admin/product/${id}`, updatedData, { withCredentials: true });
+            const response = await axios.put(`/api/admin/product/${id}`, updatedData, {
+                withCredentials: true,
+            });
             return response.data;
         } catch (err) {
             setError(err.response?.data?.message || 'Error updating product');
@@ -40,6 +44,7 @@ export const AdminProvider = ({ children }) => {
         }
     };
 
+    // Function to delete a product
     const deleteProduct = async (id) => {
         setLoading(true);
         setError(null);
@@ -53,8 +58,60 @@ export const AdminProvider = ({ children }) => {
         }
     };
 
+    // Function to fetch all users
+    const fetchUsers = async () => {
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await axios.get('/api/admin/users', { withCredentials: true });
+            return response.data;
+        } catch (err) {
+            setError(err.response?.data?.message || 'Error fetching users');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Function to fetch all reviews
+    const fetchReviews = async () => {
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await axios.get('/api/admin/reviews', { withCredentials: true });
+            return response.data;
+        } catch (err) {
+            setError(err.response?.data?.message || 'Error fetching reviews');
+        } finally {
+            setLoading(false);
+        }
+    };
+    // Function to delete a review
+    const deleteReview = async (id) => {
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await axios.delete(`/api/admin/review/${id}`, { withCredentials: true });
+            return response.data;
+        } catch (err) {
+            setError(err.response?.data?.message || 'Error deleting review');
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
-        <AdminContext.Provider value={{ addProduct, editProduct, deleteProduct, loading, error }}>
+        <AdminContext.Provider
+            value={{
+                addProduct,
+                editProduct,
+                deleteProduct,
+                fetchUsers,
+                fetchReviews,
+                deleteReview,
+                loading,
+                error,
+            }}
+        >
             {children}
         </AdminContext.Provider>
     );
