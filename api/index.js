@@ -28,7 +28,7 @@ app.use(cors());
 // app.use(cors({ origin: "http://localhost:5173" }));
 
 const corsOptions = {
-    origin: "https://laxmifurn-krishnaa-01-krishnas-projects-5eec90f6.vercel.app/", // Use the exact origin of your frontend
+    origin: "https://laxmifurn-krishnaa-01-krishnas-projects-5eec90f6.vercel.app", // Use the exact origin of your frontend
     credentials: true, // Allow credentials (cookies, headers, etc.)
 };
 

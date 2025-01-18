@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import SignInPromptModal from "../../Components/SignInPromptModal.jsx";
 import ProductReviews from "../../Components/ProductReviews/ProductReviews.jsx";
 import "./page.css";
+import api from "../../Components/context/axios.js";
 
 export default function Page() {
   const { id } = useParams();
@@ -19,7 +20,11 @@ export default function Page() {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/item/${id}`);
+        // const response = await fetch(`http://localhost:3000/api/item/${id}`);
+        const response =await fetch(import.meta.env.PROD
+          ? `https://project-01-1-vhio.onrender.com/api/item/${id}` // Production URL
+          : `/api/item/${id}` )
+      //  const response=await api.get(`/item/${id}`)
         if (!response.ok) {
           throw new Error("Failed to fetch product details");
         }
