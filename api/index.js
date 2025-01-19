@@ -31,12 +31,12 @@ app.use(cookieParser());
 app.use(cors());
 // app.use(cors({ origin: "http://localhost:5173" }));
 
-const corsOptions = {
-    origin: "https://project-01-41up.onrender.com", // Use the exact origin of your frontend
-    credentials: true, // Allow credentials (cookies, headers, etc.)
-};
+// const corsOptions = {
+//     origin: "https://project-01-41up.onrender.com", // Use the exact origin of your frontend
+//     credentials: true, // Allow credentials (cookies, headers, etc.)
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 
 app.listen(port,()=>{
