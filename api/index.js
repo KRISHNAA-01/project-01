@@ -11,6 +11,8 @@ import adminRouter from './routes/admin.route.js';
 import orderRouter from './routes/order.route.js'
 import feedbackRouter from "./routes/Feedback.js";
 import  reviewRouter from "./routes/review.route.js"
+import path from 'path';
+
 dotenv.config();
 mongoose.connect(process.env.MONGO).then(()=>{
     console.log("connectedd to db");
@@ -19,8 +21,10 @@ mongoose.connect(process.env.MONGO).then(()=>{
     console.log(err);
     
 });
+  const __dirname=path.resolve();
 
 const app =express();
+
 const port = process.env.PORT;
 app.use(express.json());
 app.use(cookieParser());
@@ -65,6 +69,11 @@ app.post('/test-razorpay', async (req, res) => {
       res.status(500).json(error);
     }
   });
+
+  app.use(express.static(path.join(__dirname,'/client/dist')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client','dist', 'index.html'));
+    });
   
 app.use((err,req,res,next)=>{
     const statusCode =err.statusCode || 500;
