@@ -8,7 +8,7 @@ import axios from 'axios';
 // After: Update for production
 const api = axios.create({
     baseURL: import.meta.env.PROD
-      ? 'https://project-01-1-vhio.onrender.com/api' // Production backend URL
+      ? 'https://project-01-41up.onrender.com/api' // Production backend URL
       : '/api', // Development URL (proxy in vite.config.js)
     withCredentials: true, // Ensures cookies are sent in each request
   });
