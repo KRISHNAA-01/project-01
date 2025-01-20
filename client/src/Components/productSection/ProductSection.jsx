@@ -103,7 +103,7 @@ export default function ProductSection() {
       try {
         const response = await fetch(
           import.meta.env.PROD
-            ? 'https://project-01-1-vhio.onrender.com/api/item' // Production URL
+            ? 'https://project-01-41up.onrender.com/api/item' // Production URL
             : '/api/item' // Development URL
         );
         if (!response.ok) {
