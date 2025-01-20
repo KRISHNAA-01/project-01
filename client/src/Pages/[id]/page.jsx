@@ -22,7 +22,7 @@ export default function Page() {
       try {
         // const response = await fetch(`http://localhost:3000/api/item/${id}`);
         const response =await fetch(import.meta.env.PROD
-          ? `https://project-01-1-vhio.onrender.com/api/item/${id}` // Production URL
+          ? `https://project-01-41up.onrender.com/api/item/${id}` // Production URL
           : `/api/item/${id}` )
       //  const response=await api.get(`/item/${id}`)
         if (!response.ok) {
