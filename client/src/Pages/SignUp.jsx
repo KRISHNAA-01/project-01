@@ -21,8 +21,8 @@ export default function SignUp() {
     try {
       setLoading(true);
       const res = await fetch(import.meta.env.PROD
-        ? 'https://project-01-1-vhio.onrender.com/api/auth/signin' // Production URL
-        : '/api/auth/signin', {
+        ? 'https://project-01-1-vhio.onrender.com/api/auth/signup' // Production URL
+        : '/api/auth/signup', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

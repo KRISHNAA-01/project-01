@@ -57,6 +57,7 @@ import EditProduct from './Components/admin/EditProduct'
 import Orders from './Pages/Orders'
 import AdminDashboard from './Pages/Admin/AdminDashboard'
 import FeedbackPage from './Pages/FeedbackPage'
+import Chatbot from './Components/chatbot/Chatbot'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -82,6 +83,8 @@ function App() {
             <Route path="/:id" element={<Page />} />
             <Route path='/checkout' element={<Checkout />} />
           </Routes>
+          <Chatbot  />
+
         </CartProvider>
       </AdminProvider>
     </BrowserRouter>

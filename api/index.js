@@ -12,6 +12,8 @@ import orderRouter from './routes/order.route.js'
 import feedbackRouter from "./routes/Feedback.js";
 import  reviewRouter from "./routes/review.route.js"
 import path from 'path';
+import chatbotRoutes from './routes/chatbotRoutes.js';
+
 
 dotenv.config();
 mongoose.connect(process.env.MONGO).then(()=>{
@@ -54,6 +56,7 @@ app.use('/api/order', orderRouter);
 app.use("/api/feedback", feedbackRouter); // Feedback routes
 app.use("/api/review",reviewRouter);
 
+app.use('/api/chatbot', chatbotRoutes);
 
 import Razorpay from 'razorpay';
 const razorpay = new Razorpay({
