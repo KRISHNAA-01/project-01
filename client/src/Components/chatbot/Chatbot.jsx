@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Chatbot.css';
+import './chatbot.css';
 import api from '../context/axios'; // Ensure this is correctly set up
 
 const Chatbot = ({ userId }) => {
