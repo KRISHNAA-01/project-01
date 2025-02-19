@@ -26,15 +26,19 @@ const SignIn = () => {
         
 
         dispatch(signInStart());
-        const res = await fetch(import.meta.env.PROD
-          ? 'https://project-01-41up.onrender.com/api/auth/signin' // Production URL
-          : '/api/auth/signin', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
+        const API_BASE_URL =
+        window.location.hostname === 'localhost'
+          ? '/api/auth/signin' // Local development
+          : 'https://project-01-41up.onrender.com/api/auth/signin'; // Production
+      
+      const res = await fetch(API_BASE_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
         const data = await res.json();
         console.log(data);
         
