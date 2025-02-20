@@ -1,40 +1,31 @@
-/* .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .header .logo a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.5em;
-  }
-  
-  .header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-   */
+/* Apply the same background as Hero only on the home page */
+.home-header {
+  position: absolute; /* Make header float over the hero */
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2); /* Transparent whitish */
+  backdrop-filter: blur(8px); /* Blurred glass effect */
+  padding: 15px 0;
+}
 
 
-   .header .logo a {
-    transition: color 0.3s ease;
-  }
-  
-  .header nav a {
-    transition: color 0.3s ease;
-  }
-  
-  .header nav a:hover {
-    color: #b8b5b5;
-  }
-  
+/* Default Static Header */
+.static-header {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo and Link Colors */
+.home-header .logo a,
+.home-header nav a {
+  color: white;
+}
+
+.static-header .logo a,
+.static-header nav a {
+  color: #590109;
+}
+
+/* Hover Effects */
+.header nav a:hover {
+  color: #e30217;
+}
