@@ -7,6 +7,12 @@ import json
 import pickle
 from keras.models import load_model
 
+
+# Download NLTK data
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+
 # Initialize Flask app
 app = Flask(__name__)
 
