@@ -1,0 +1,141 @@
+
+```markdown
+# 🪑 Online Furniture Store – MERN Stack E-commerce Web App
+
+An end-to-end e-commerce platform for purchasing raw furniture materials. This project integrates modern web technologies with user-friendly UI and powerful admin capabilities to manage inventory, orders, and deliveries effectively.
+
+---
+
+## 📌 Features
+
+### ✅ User Features
+- User Registration and Login (Firebase Authentication)
+- Browse and filter products by category and price
+- Add to Cart with quantity management
+- Checkout with conditional delivery charges based on zip code
+- Order placement and order history view
+- Stock availability status (“Currently Unavailable” for out-of-stock products)
+- Chatbot integration for order-related queries and FAQs
+
+### ✅ Admin Features
+- Admin Dashboard with role-based access control
+- Add, Edit, and Delete Products
+- Real-time stock level monitoring
+- View and manage orders placed by all users
+
+---
+
+## 🚀 Tech Stack
+
+### **Frontend**
+- React.js (with Context API)
+- Tailwind CSS for responsive and elegant UI
+- Axios for API communication
+
+### **Backend**
+- Node.js with Express.js
+- MongoDB for data storage (with Mongoose ODM)
+- Firebase Authentication for secure login/signup
+- RESTful APIs for products, users, orders, and admin functionalities
+
+### **Other Tools**
+- Postman for API testing
+- Git & GitHub for version control
+- Render / Vercel / Netlify for deployment
+
+---
+
+## 🛠️ Project Structure
+
+```
+
+furniture-store/
+│
+├── client/                  # React Frontend
+│   ├── public/
+│   └── src/
+│       ├── components/
+│       ├── pages/
+│       ├── context/         # Cart and Auth Context
+│       └── App.jsx
+│
+├── api/                     # Node + Express Backend
+│   ├── models/
+│   ├── routes/
+│   ├── controllers/
+│   └── server.js
+│
+├── chatbot/                 # Python-based chatbot
+│   ├── chatbot\_model.h5
+│   ├── tokenizer.pickle
+│   └── app.py
+│
+└── README.md
+
+````
+
+---
+
+## 📦 Installation & Setup
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/KRISHNAA-01/project-01.git
+   cd project-01
+````
+
+2. **Install dependencies**
+
+   * **Backend**
+
+     ```bash
+     cd api
+     npm install
+     npm start
+     ```
+
+   * **Frontend**
+
+     ```bash
+     cd ../client
+     npm install
+     npm run dev
+     ```
+
+   * **Chatbot (optional)**
+
+     ```bash
+     cd ../chatbot
+     pip install -r requirements.txt
+     python app.py
+     ```
+
+3. **Set environment variables**
+   Create `.env` files in the `api` and `client` with necessary keys:
+
+   * MongoDB URI
+   * Firebase config
+   * JWT secret
+
+---
+
+
+---
+
+## 🤖 Chatbot Integration
+
+The chatbot is built using **Python (TensorFlow, NLTK, Keras)** and is integrated via API endpoints in Express. It helps users check order status, availability, and other FAQs directly on the site.
+
+
+---
+
+## 🙌 Acknowledgements
+
+* Firebase Authentication
+* Tailwind CSS
+* MongoDB Atlas
+* TensorFlow for chatbot model
+* OpenAI ChatGPT for code guidance
+
+```
+
