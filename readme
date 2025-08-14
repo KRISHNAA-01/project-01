@@ -1,5 +1,16 @@
+Your file isn’t formatting properly in Markdown because you have **mismatched or extra backticks** for your code blocks and folder structure.
 
-```markdown
+In Markdown:
+
+* Code blocks must start and end with the same number of backticks (\`\`\`)
+* You’ve mixed \`\`\`\`\` (5 backticks) and \`\`\`\` (4 backticks) with \`\`\` (3 backticks) inconsistently.
+* You also have underscores in `chatbot\_model.h5` escaped unnecessarily (the backslash is not needed inside code blocks).
+
+---
+
+Here’s your **fixed, properly formatted** version:
+
+````markdown
 # 🪑 Online Furniture Store – MERN Stack E-commerce Web App
 
 An end-to-end e-commerce platform for purchasing raw furniture materials. This project integrates modern web technologies with user-friendly UI and powerful admin capabilities to manage inventory, orders, and deliveries effectively.
@@ -47,8 +58,7 @@ An end-to-end e-commerce platform for purchasing raw furniture materials. This p
 
 ## 🛠️ Project Structure
 
-```
-
+```plaintext
 furniture-store/
 │
 ├── client/                  # React Frontend
@@ -66,12 +76,11 @@ furniture-store/
 │   └── server.js
 │
 ├── chatbot/                 # Python-based chatbot
-│   ├── chatbot\_model.h5
+│   ├── chatbot_model.h5
 │   ├── tokenizer.pickle
 │   └── app.py
 │
 └── README.md
-
 ````
 
 ---
@@ -79,36 +88,37 @@ furniture-store/
 ## 📦 Installation & Setup
 
 1. **Clone the repo**
+
    ```bash
    git clone https://github.com/KRISHNAA-01/project-01.git
    cd project-01
-````
+   ```
 
 2. **Install dependencies**
 
-   * **Backend**
+   **Backend**
 
-     ```bash
-     cd api
-     npm install
-     npm start
-     ```
+   ```bash
+   cd api
+   npm install
+   npm start
+   ```
 
-   * **Frontend**
+   **Frontend**
 
-     ```bash
-     cd ../client
-     npm install
-     npm run dev
-     ```
+   ```bash
+   cd ../client
+   npm install
+   npm run dev
+   ```
 
-   * **Chatbot (optional)**
+   **Chatbot (optional)**
 
-     ```bash
-     cd ../chatbot
-     pip install -r requirements.txt
-     python app.py
-     ```
+   ```bash
+   cd ../chatbot
+   pip install -r requirements.txt
+   python app.py
+   ```
 
 3. **Set environment variables**
    Create `.env` files in the `api` and `client` with necessary keys:
@@ -119,13 +129,9 @@ furniture-store/
 
 ---
 
-
----
-
 ## 🤖 Chatbot Integration
 
 The chatbot is built using **Python (TensorFlow, NLTK, Keras)** and is integrated via API endpoints in Express. It helps users check order status, availability, and other FAQs directly on the site.
-
 
 ---
 
@@ -139,3 +145,7 @@ The chatbot is built using **Python (TensorFlow, NLTK, Keras)** and is integrate
 
 ```
 
+---
+
+
+```
