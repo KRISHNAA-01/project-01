@@ -1,10 +1,3 @@
-Your file isn’t rendering correctly in Markdown because:
-
-1. **The folder structure block (`furniture-store/ ...`) isn’t inside triple backticks** → Without them, GitHub treats it as plain text and won’t preserve alignment.
-2. **Some code blocks for commands don’t have proper opening and closing backticks with the language specified** — for example, `bash` is written as plain text, not inside \`\`\`bash.
-3. **Extra blank lines and stray quotes** at the top and bottom can break rendering.
-
-Here’s your corrected and cleanly formatted version:
 
 ````markdown
 # 🪑 Online Furniture Store – MERN Stack E-commerce Web App
@@ -141,9 +134,5 @@ The chatbot is built using **Python (TensorFlow, NLTK, Keras)** and is integrate
 
 ```
 
----
 
-If you paste this into `README.md`, it will render properly on GitHub — headings, folder tree, and commands will all be formatted neatly.  
 
-If you want, I can also add **GitHub Shields badges** (for React, Node.js, MongoDB, Firebase, etc.) at the top so your demo looks more professional. That would impress interviewers.
-```
