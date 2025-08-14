@@ -1,4 +1,3 @@
-
 ````markdown
 # 🪑 Online Furniture Store – MERN Stack E-commerce Web App
 
@@ -132,6 +131,7 @@ The chatbot is built using **Python (TensorFlow, NLTK, Keras)** and is integrate
 * TensorFlow for chatbot model
 * OpenAI ChatGPT for code guidance
 
-```
+````
+
 
 
