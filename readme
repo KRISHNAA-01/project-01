@@ -1,14 +1,3 @@
-Your file isn’t formatting properly in Markdown because you have **mismatched or extra backticks** for your code blocks and folder structure.
-
-In Markdown:
-
-* Code blocks must start and end with the same number of backticks (\`\`\`)
-* You’ve mixed \`\`\`\`\` (5 backticks) and \`\`\`\` (4 backticks) with \`\`\` (3 backticks) inconsistently.
-* You also have underscores in `chatbot\_model.h5` escaped unnecessarily (the backslash is not needed inside code blocks).
-
----
-
-Here’s your **fixed, properly formatted** version:
 
 ````markdown
 # 🪑 Online Furniture Store – MERN Stack E-commerce Web App
@@ -149,3 +138,4 @@ The chatbot is built using **Python (TensorFlow, NLTK, Keras)** and is integrate
 
 
 ```
+
