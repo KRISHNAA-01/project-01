@@ -1,4 +1,12 @@
+Your file isn’t rendering correctly in Markdown because:
 
+1. **The folder structure block (`furniture-store/ ...`) isn’t inside triple backticks** → Without them, GitHub treats it as plain text and won’t preserve alignment.
+2. **Some code blocks for commands don’t have proper opening and closing backticks with the language specified** — for example, `bash` is written as plain text, not inside \`\`\`bash.
+3. **Extra blank lines and stray quotes** at the top and bottom can break rendering.
+
+Here’s your corrected and cleanly formatted version:
+
+````markdown
 # 🪑 Online Furniture Store – MERN Stack E-commerce Web App
 
 An end-to-end e-commerce platform for purchasing raw furniture materials. This project integrates modern web technologies with user-friendly UI and powerful admin capabilities to manage inventory, orders, and deliveries effectively.
@@ -46,6 +54,7 @@ An end-to-end e-commerce platform for purchasing raw furniture materials. This p
 
 ## 🛠️ Project Structure
 
+```plaintext
 furniture-store/
 │
 ├── client/                  # React Frontend
@@ -68,7 +77,7 @@ furniture-store/
 │   └── app.py
 │
 └── README.md
-
+````
 
 ---
 
@@ -85,27 +94,27 @@ furniture-store/
 
    **Backend**
 
-   bash
+   ```bash
    cd api
    npm install
    npm start
-   
+   ```
 
    **Frontend**
 
-   bash
+   ```bash
    cd ../client
    npm install
    npm run dev
-   
+   ```
 
    **Chatbot (optional)**
 
-   bash
+   ```bash
    cd ../chatbot
    pip install -r requirements.txt
    python app.py
-   
+   ```
 
 3. **Set environment variables**
    Create `.env` files in the `api` and `client` with necessary keys:
@@ -130,8 +139,11 @@ The chatbot is built using **Python (TensorFlow, NLTK, Keras)** and is integrate
 * TensorFlow for chatbot model
 * OpenAI ChatGPT for code guidance
 
+```
 
+---
 
+If you paste this into `README.md`, it will render properly on GitHub — headings, folder tree, and commands will all be formatted neatly.  
 
-
-
+If you want, I can also add **GitHub Shields badges** (for React, Node.js, MongoDB, Firebase, etc.) at the top so your demo looks more professional. That would impress interviewers.
+```
