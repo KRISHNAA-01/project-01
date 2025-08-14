@@ -1,3 +1,4 @@
+
 # 🪑 Online Furniture Store – MERN Stack E-commerce Web App
 
 An end-to-end e-commerce platform for purchasing raw furniture materials. This project integrates modern web technologies with user-friendly UI and powerful admin capabilities to manage inventory, orders, and deliveries effectively.
@@ -68,3 +69,68 @@ furniture-store/
 │   └── app.py
 │
 └── README.md
+````
+
+---
+
+## 📦 Installation & Setup
+
+1. **Clone the repo**
+
+   ```bash
+   git clone https://github.com/KRISHNAA-01/project-01.git
+   cd project-01
+   ```
+
+2. **Install dependencies**
+
+   **Backend**
+
+   ```bash
+   cd api
+   npm install
+   npm start
+   ```
+
+   **Frontend**
+
+   ```bash
+   cd ../client
+   npm install
+   npm run dev
+   ```
+
+   **Chatbot (optional)**
+
+   ```bash
+   cd ../chatbot
+   pip install -r requirements.txt
+   python app.py
+   ```
+
+3. **Set environment variables**
+   Create `.env` files in the `api` and `client` with necessary keys:
+
+   * MongoDB URI
+   * Firebase config
+   * JWT secret
+
+---
+
+## 🤖 Chatbot Integration
+
+The chatbot is built using **Python (TensorFlow, NLTK, Keras)** and is integrated via API endpoints in Express. It helps users check order status, availability, and other FAQs directly on the site.
+
+---
+
+## 🙌 Acknowledgements
+
+* Firebase Authentication
+* Tailwind CSS
+* MongoDB Atlas
+* TensorFlow for chatbot model
+* OpenAI ChatGPT for code guidance
+
+```
+
+
