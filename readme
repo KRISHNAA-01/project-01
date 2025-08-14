@@ -1,4 +1,4 @@
-````markdown
+
 # 🪑 Online Furniture Store – MERN Stack E-commerce Web App
 
 An end-to-end e-commerce platform for purchasing raw furniture materials. This project integrates modern web technologies with user-friendly UI and powerful admin capabilities to manage inventory, orders, and deliveries effectively.
@@ -131,7 +131,7 @@ The chatbot is built using **Python (TensorFlow, NLTK, Keras)** and is integrate
 * TensorFlow for chatbot model
 * OpenAI ChatGPT for code guidance
 
-````
+
 
 
 
