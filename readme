@@ -46,7 +46,6 @@ An end-to-end e-commerce platform for purchasing raw furniture materials. This p
 
 ## 🛠️ Project Structure
 
-```plaintext
 furniture-store/
 │
 ├── client/                  # React Frontend
@@ -69,7 +68,7 @@ furniture-store/
 │   └── app.py
 │
 └── README.md
-````
+
 
 ---
 
@@ -86,27 +85,27 @@ furniture-store/
 
    **Backend**
 
-   ```bash
+   bash
    cd api
    npm install
    npm start
-   ```
+   
 
    **Frontend**
 
-   ```bash
+   bash
    cd ../client
    npm install
    npm run dev
-   ```
+   
 
    **Chatbot (optional)**
 
-   ```bash
+   bash
    cd ../chatbot
    pip install -r requirements.txt
    python app.py
-   ```
+   
 
 3. **Set environment variables**
    Create `.env` files in the `api` and `client` with necessary keys:
@@ -130,6 +129,7 @@ The chatbot is built using **Python (TensorFlow, NLTK, Keras)** and is integrate
 * MongoDB Atlas
 * TensorFlow for chatbot model
 * OpenAI ChatGPT for code guidance
+
 
 
 
